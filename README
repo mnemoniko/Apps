@@ -1,3 +1,5 @@
-This used to be the Apps directory in my ROMS repository. I'm breaking
-it out into an optional submodule. I'll keep updating these (for now)
-but created a parallel Old_Apps repo for the ones I won't be maintaining.
+This is from the Apps directory in Kate's ROMS repository.  Additions
+are from Stefanie Mack's specific applications.
+
+Current additions:
+PIG - Pine Island Glacier ice shelf cavity (grid testing mode)
