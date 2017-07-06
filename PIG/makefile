@@ -65,7 +65,7 @@ ROMS_APPLICATION ?= PIG
 #  If application header files is not located in "ROMS/Include",
 #  provide an alternate directory FULL PATH.
 
-MY_HEADER_DIR ?= /u/slmack/ROMS37/trunk/Apps/PIG
+MY_HEADER_DIR ?= /u/slmack/ROMS37/Apps/PIG
 
 #  If your application requires analytical expressions and they are
 #  not located in "ROMS/Functionals", provide an alternate directory.
@@ -75,7 +75,7 @@ MY_HEADER_DIR ?= /u/slmack/ROMS37/trunk/Apps/PIG
 #  If applicable, also used this directory to place your customized
 #  biology model header file (like fennel.h, nemuro.h, ecosim.h, etc).
 
-MY_ANALYTICAL_DIR ?= /u/slmack/ROMS37/trunk/Apps/PIG
+MY_ANALYTICAL_DIR ?= /u/slmack/ROMS37/Apps/PIG
 
 # If applicable, where does CICE put its binary files?
 
@@ -94,13 +94,13 @@ MY_CPP_FLAGS ?= -O3
 
 #  Activate debugging compiler options:
 
-   USE_DEBUG ?= on
+   USE_DEBUG ?= 
 
 #  If parallel applications, use at most one of these definitions
 #  (leave both definitions blank in serial applications):
 
-     USE_MPI ?=
-  USE_OpenMP ?= on
+     USE_MPI ?= on
+  USE_OpenMP ?= 
 
 #  If distributed-memory, turn on compilation via the script "mpif90".
 #  This is needed in some Linux operating systems. In some systems with
@@ -110,7 +110,7 @@ MY_CPP_FLAGS ?= -O3
 #  In this, case the user need to select the desired compiler below and
 #  turn on both USE_MPI and USE_MPIF90 macros.
 
-  USE_MPIF90 ?=
+  USE_MPIF90 ?= on
 
 #  If applicable, activate 64-bit compilation:
 
@@ -120,6 +120,10 @@ MY_CPP_FLAGS ?= -O3
 #  library needs both the HDF5 and MPI libraries.
 
  USE_NETCDF4 ?= on
+
+# For running on Pleiades, specify which node types to compile for
+ USE_BRIDGE ?= on
+ USE_WELL   ?=
 
 #--------------------------------------------------------------------------
 #  We are going to include a file with all the settings that depend on
@@ -524,6 +528,15 @@ $(SCRATCH_DIR):
 # FFLAGS += -Mprof=mpi,lines              # pgi
 # FFLAGS += -Mprof=mpi,hwcts              # pgi
 # FFLAGS += -Mprof=func                   # pgi
+  FFLAGS += -mcmodel=medium -shared-intel
+
+ifdef USE_BRIDGE
+  FFLAGS += -xAVX
+endif
+
+ifdef USE_WELL
+  FFLAGS += -xCORE-xAVX2
+endif
 
 #--------------------------------------------------------------------------
 #  Special CPP macros for mod_strings.F
