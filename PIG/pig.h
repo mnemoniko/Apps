@@ -82,10 +82,10 @@
 
 
 /*Horizontal Mixing*/
-#define MIX_GEO_UV
-#undef MIX_S_UV
-#define MIX_ISO_TS
-#undef MIX_S_TS
+#undef MIX_GEO_UV
+#define MIX_S_UV
+#undef MIX_ISO_TS
+#define MIX_GEO_TS
 
 
 /*Vertical Turbulent Mixing*/
