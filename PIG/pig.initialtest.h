@@ -19,8 +19,8 @@
 #define UV_COR
 #define SPLINES_VVISC
 #define UV_C4ADVECTION
-#define UV_VIS2
-#undef UV_VIS4
+#undef UV_VIS2
+#define UV_VIS4
 #define UV_QDRAG
 
 
@@ -28,8 +28,8 @@
 #undef TS_C4HADVECTION
 #define TS_U3HADVECTION
 #define TS_C4VADVECTION
-#undef TS_DIF4
-#define TS_DIF2
+#define TS_DIF4
+#undef TS_DIF2
 #undef T_PASSIVE
 #define NONLIN_EOS
 #define SALINITY
@@ -55,10 +55,22 @@
 #undef CURVGRID
 #undef SPHERICAL
 #define MASKING
-#define ICESHELF
-#define ICESHELF_3EQ
 #undef DIAGNOSTICS_UV
 #undef DIAGNOSTICS_TS
+
+
+/*Iceshelf options*/
+#define ICESHELF
+#undef ICESHELF_MORPH
+#undef ICESHELF_2EQ_VBC
+#undef ICESHELF_3EQ_VBC
+#undef ICESHELF_TEOS10
+#undef LIMIT_ICESTRESS
+
+
+/*FISOC options*/
+#undef FISOC
+#undef FISOC_DDDT
 
 
 /*Lagrangian Drifters*/
@@ -71,7 +83,6 @@
 #define ANA_BTFLUX
 #define ANA_SRFLUX
 
-#undef ANA_INITIAL
 #define ANA_SMFLUX
 #define ANA_STFLUX
 #define ANA_SSFLUX
@@ -118,3 +129,7 @@
 # define ICE_ALB_EC92
 # define ICE_MOMENTUM
 #endif
+
+#undef ANA_SEAICE
+#undef SEAICE_CLIMA
+#undef SEAICE_WINTER

@@ -19,8 +19,8 @@
 #define UV_COR
 #define SPLINES_VVISC
 #define UV_C4ADVECTION
-#define UV_VIS2
-#undef UV_VIS4
+#undef UV_VIS2
+#define UV_VIS4
 #define UV_QDRAG
 
 
@@ -28,8 +28,8 @@
 #undef TS_C4HADVECTION
 #define TS_U3HADVECTION
 #define TS_C4VADVECTION
-#undef TS_DIF4
-#define TS_DIF2
+#define TS_DIF4
+#undef TS_DIF2
 #undef T_PASSIVE
 #define NONLIN_EOS
 #define SALINITY
@@ -51,12 +51,12 @@
 
 /*Model Configuration*/
 #define SOLVE3D
-#undef AVERAGES
+#define AVERAGES
 #undef CURVGRID
 #undef SPHERICAL
 #define MASKING
 #define ICESHELF
-#define ICESHELF_3EQ
+#undef ICESHELF_3EQ
 #undef DIAGNOSTICS_UV
 #undef DIAGNOSTICS_TS
 
@@ -71,13 +71,7 @@
 #define ANA_BTFLUX
 #define ANA_SRFLUX
 
-#undef ANA_INITIAL
-#define ANA_SMFLUX
-#define ANA_STFLUX
-#define ANA_SSFLUX
-#define ANA_WINDS
-
-#undef GRD_TEST
+#define GRD_TEST
 #ifdef GRD_TEST
 # define ANA_INITIAL
 # define ANA_SMFLUX
