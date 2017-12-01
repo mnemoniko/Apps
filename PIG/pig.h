@@ -17,7 +17,7 @@
 
 #define UV_ADV
 #define UV_COR
-#define SPLINES_VVISC
+#undef SPLINES_VVISC
 #define UV_C4ADVECTION
 #define UV_VIS2
 #undef UV_VIS4
@@ -33,7 +33,7 @@
 #undef T_PASSIVE
 #define NONLIN_EOS
 #define SALINITY
-#define SPLINES_VDIFF
+#undef SPLINES_VDIFF
 
 
 /*Pressure Gradient Algorithm*/
@@ -67,14 +67,12 @@
 
 
 /*Analytical Fields*/
-#define ANA_BSFLUX
 #define ANA_BTFLUX
 #define ANA_SRFLUX
 
 #undef ANA_INITIAL
 #define ANA_SMFLUX
 #define ANA_STFLUX
-#define ANA_SSFLUX
 #define ANA_WINDS
 
 #undef GRD_TEST
@@ -82,7 +80,6 @@
 # define ANA_INITIAL
 # define ANA_SMFLUX
 # define ANA_STFLUX
-# define ANA_SSFLUX
 # define ANA_WINDS
 #endif
 
