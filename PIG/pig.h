@@ -17,7 +17,7 @@
 
 #define UV_ADV
 #define UV_COR
-#undef SPLINES_VVISC
+#define SPLINES_VVISC
 #define UV_C4ADVECTION
 #define UV_VIS2
 #undef UV_VIS4
@@ -48,6 +48,8 @@
 # define SOLAR_SOURCE
 #endif
 
+/*Lateral boundary options*/
+#undef RADIATION_2D
 
 /*Model Configuration*/
 #define SOLVE3D
@@ -55,8 +57,8 @@
 #undef CURVGRID
 #undef SPHERICAL
 #define MASKING
-#define ICESHELF
-#define ICESHELF_3EQ
+#undef ICESHELF
+#undef ICESHELF_3EQ
 #undef DIAGNOSTICS_UV
 #undef DIAGNOSTICS_TS
 
@@ -69,8 +71,10 @@
 /*Analytical Fields*/
 #define ANA_BTFLUX
 #define ANA_SRFLUX
+#define ANA_BSFLUX
 
 #undef ANA_INITIAL
+#define ANA_SSFLUX
 #define ANA_SMFLUX
 #define ANA_STFLUX
 #define ANA_WINDS
@@ -85,8 +89,8 @@
 
 
 /*Horizontal Mixing*/
-#undef MIX_GEO_UV
-#define MIX_S_UV
+#define MIX_GEO_UV
+#undef MIX_S_UV
 #undef MIX_ISO_TS
 #define MIX_GEO_TS
 
